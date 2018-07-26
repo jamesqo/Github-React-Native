@@ -24,6 +24,7 @@ export default class App extends React.Component {
 }
 
 
+//Calls the API given the name, owner, and path
 
 async function callAPI(r, o, p) {
 
@@ -51,6 +52,7 @@ function formatJSON(f){
     return l;
 }
 
+//Formats the proper API call based on name, owner, and path
 function formatURL(r,o,p){
   let baseURL = 'https://api.github.com/repos/'+o+'/'+r+'/contents'
   if (p.length == 1){
@@ -65,7 +67,7 @@ function formatURL(r,o,p){
 }
 
 
-
+//First Screeen
 class sr extends React.Component {
   static navigationOptions = {
     headerTitle: 'Search'
@@ -108,6 +110,8 @@ class sr extends React.Component {
   }
 }
 
+
+//Second Screen
 class dir extends React.Component {
 
   static navigationOptions = {
@@ -130,7 +134,8 @@ class dir extends React.Component {
     }
 
 
-// two on item press, if its not a directory, make it render the base64
+// Function to handle the on press for inner directories
+// Personal note: two on item press, if its not a directory, make it render the base64
   onItemPress(item) {
     const { push } = this.props.navigation;
     let repo = this.props.navigation.state.params.sentrepo;
